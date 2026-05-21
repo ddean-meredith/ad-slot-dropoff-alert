@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ad-slot-dropoff-alert"
+version = "0.1.0"
+description = "Daily Google Ad Manager ad slot impression drop detector"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "googleads",
+  "python-dotenv",
+  "SQLAlchemy",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+gam-impression-detector = "src.main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
